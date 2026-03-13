@@ -19,11 +19,13 @@ Para nosotros, la seguridad de los datos es primordial. Hemos implementado las s
 
 1.  **Prevención de SQL Injection**: Utilizamos **Consultas Preparadas (Prepared Statements)** en todas las interacciones con la base de datos. Esto garantiza que las entradas del usuario nunca sean ejecutadas como comandos SQL maliciosos.
 
-3.  **Seguridad en Contraseñas con Salts**: Las contraseñas no se guardan en texto plano; aplicamos un **Salt** personalizado y utilizamos el algoritmo `password_hash` (BCrypt) para proteger las credenciales contra ataques de tablas arcoíris.
+2.  **Seguridad en Contraseñas con Salts**: Las contraseñas no se guardan en texto plano; aplicamos un **Salt** personalizado y utilizamos el algoritmo `password_hash` (BCrypt) para proteger las credenciales contra ataques de tablas arcoíris.
 
-5.  **Gestión de Sesiones**: Implementamos un sistema de **Sesiones PHP** que valida la identidad del usuario en cada página sensible, redirigiendo al login si no se detecta una sesión activa.
+3.  **Gestión de Sesiones**: Implementamos un sistema de **Sesiones PHP** que valida la identidad del usuario en cada página sensible, redirigiendo al login si no se detecta una sesión activa.
 
-7.  **Protección del Servidor**: Hemos configurado el servidor Apache para **deshabilitar el listado de directorios**, evitando que cualquier persona pueda navegar por la estructura de archivos del proyecto desde el navegador.
+4. **Protección contra fuerza bruta**: Debido a que el entorno es un contenedor sencillo, donde se dificulta implementar herramientas como fail2ban, hemos optado por añadir un pequeño delay de 3 segundos cuando haya un intento de inicio de sesión fallido. De esta manera la fuerza bruta se vuelve mucho menos viable para el atacante.
+
+5.  **Protección del Servidor**: Hemos configurado el servidor Apache para **deshabilitar el listado de directorios**, evitando que cualquier persona pueda navegar por la estructura de archivos del proyecto desde el navegador.
 
 
 ## 🛠️ Cómo desplegar la aplicación
