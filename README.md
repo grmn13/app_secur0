@@ -5,20 +5,26 @@ App web para el taller de secur0 en el IES Galileo | Hecha por Juan Sousa, Nicol
 
 ¡Bienvenido a **NoteApp**! Esta es una aplicación web sencilla diseñada para que los usuarios puedan gestionar sus notas personales de forma segura y eficiente. Este proyecto fue desarrollado por nuestro grupo como una solución práctica para el almacenamiento y organización de información.
 
+
 ## 🚀 Características Principales
 
 * **Gestión de Notas**: Interfaz para crear, visualizar y organizar notas personales.
 * **Base de Datos**: Persistencia de datos utilizando **MariaDB**.
 * **Arquitectura de Contenedores**: Despliegue estandarizado mediante **Docker**.
 
+
 ## 🔒 Medidas de Seguridad Implementadas
 
 Para nosotros, la seguridad de los datos es primordial. Hemos implementado las siguientes capas de protección en el código:
 
 1.  **Prevención de SQL Injection**: Utilizamos **Consultas Preparadas (Prepared Statements)** en todas las interacciones con la base de datos. Esto garantiza que las entradas del usuario nunca sean ejecutadas como comandos SQL maliciosos.
-2.  **Seguridad en Contraseñas con Salts**: Las contraseñas no se guardan en texto plano; aplicamos un **Salt** personalizado y utilizamos el algoritmo `password_hash` (BCrypt) para proteger las credenciales contra ataques de tablas arcoíris.
-3.  **Gestión de Sesiones**: Implementamos un sistema de **Sesiones PHP** que valida la identidad del usuario en cada página sensible, redirigiendo al login si no se detecta una sesión activa.
-4.  **Protección del Servidor**: Hemos configurado el servidor Apache para **deshabilitar el listado de directorios**, evitando que cualquier persona pueda navegar por la estructura de archivos del proyecto desde el navegador.
+
+3.  **Seguridad en Contraseñas con Salts**: Las contraseñas no se guardan en texto plano; aplicamos un **Salt** personalizado y utilizamos el algoritmo `password_hash` (BCrypt) para proteger las credenciales contra ataques de tablas arcoíris.
+
+5.  **Gestión de Sesiones**: Implementamos un sistema de **Sesiones PHP** que valida la identidad del usuario en cada página sensible, redirigiendo al login si no se detecta una sesión activa.
+
+7.  **Protección del Servidor**: Hemos configurado el servidor Apache para **deshabilitar el listado de directorios**, evitando que cualquier persona pueda navegar por la estructura de archivos del proyecto desde el navegador.
+
 
 ## 🛠️ Cómo desplegar la aplicación
 
