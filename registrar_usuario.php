@@ -46,14 +46,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // "ss" indica que enviamos dos parámetros de tipo String
         $stmt->bind_param("ss", $user, $password_safe);
 
-        if ($stmt->execute()) {
+        try{
+            $stmt->execute();
             // Éxito: Redirigir al login con un mensaje de éxito
             header("Location: Pagina_login.html?reg=success");
             exit();
-        } else {
+        } catch (mysqli_sql_exception $e) {
             // Error común: El nombre de usuario ya existe (UNIQUE constraint)
-            if ($conn->errno === 1062) {
-                echo "Error: El nombre de usuario ya está pillado.";
+            if ($e->getCode() === 1062) {
+                echo "Error: El usuario ya existe.";
             } else {
                 echo "Error al registrar: " . $conn->error;
             }

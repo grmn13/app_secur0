@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: Pagina_princip.php");
                 exit();
             } else {
+                sleep(3);
                 echo "Contraseña incorrecta.";
             }
         } else {
