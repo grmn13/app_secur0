@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteApp - Login</title>
+    <link rel="stylesheet" href="Pagina_login.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>NoteApp</h1>
+                <p id="auth-subtitle">Bienvenido de nuevo</p>
+            </div>
+		<form id="login-form" action="validar_login.php" method="POST">
+		    <div class="input-group">
+			<label>Usuario</label>
+			<input type="text" id="login-user" name="usuario" placeholder="Ej: JuanPerez" required>
+		    </div>
+		    <div class="input-group">
+			<label>Contraseña</label>
+			<input type="password" id="login-pass" name="password" placeholder="••••••••" required>
+
+		    </div>
+		    <button type="submit" class="btn-auth">Entrar</button>
+		    <p class="switch-text">¿No tienes cuenta? <a href="#" onclick="toggleAuth()">Regístrate</a></p>
+		</form>
+		<form id="register-form" action="registrar_usuario.php" method="POST" style="display: none;">
+		    <div class="input-group">
+			<label>Nombre Completo</label>
+			<input type="text" name="nombre" placeholder="Tu nombre">
+		    </div>
+		    <div class="input-group">
+			<label>Nuevo Usuario</label>
+			<input type="text" id="reg-user" name="new_user" placeholder="Ej: JuanPerez" required>
+		    </div>
+		    <div class="input-group">
+			<label>Contraseña</label>
+                        <input type="password" name="new_password" placeholder="Mínimo 8 caracteres (A, a, 1, #)" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}" title="Debe contener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y símbolos" required>
+		    </div>
+		    <button type="submit" class="btn-auth btn-register">Crear Cuenta</button>
+		    <p class="switch-text">¿Ya tienes cuenta? <a href="#" onclick="toggleAuth()">Inicia Sesión</a></p>
+		</form>
+       </div>
+    </div>
+
+    <script>
+        // Función simple para cambiar entre login y registro
+        function toggleAuth() {
+            const loginForm = document.getElementById('login-form');
+            const regForm = document.getElementById('register-form');
+            const subtitle = document.getElementById('auth-subtitle');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                regForm.style.display = 'none';
+                subtitle.innerText = 'Bienvenido de nuevo';
+            } else {
+                loginForm.style.display = 'none';
+                regForm.style.display = 'block';
+                subtitle.innerText = 'Crea tu cuenta gratuita';
+            }
+        }
+
+        // Lógica para enviar el nombre al Dashboard
+
+    </script>
+</body>
+</html>
